@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap');
+@import 'tailwindcss';
+
+:root {
+  font-family: 'DM Sans', sans-serif;
+  color: #17213b;
+  background: #d9e0e7;
+  font-synthesis: none;
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; min-width: 320px; min-height: 100vh; }
+button, input { font: inherit; }
+button { cursor: pointer; }
+.icon { width: 22px; height: 22px; flex: none; }
+
+.app-shell { min-height: 100vh; display: grid; place-items: center; }
+.phone { width: min(100%, 430px); min-height: 100vh; background: #f7f8fc; position: relative; overflow: hidden; padding-bottom: 92px; }
+.status-bar { height: 32px; background: #ef3340; color: white; display: flex; align-items: center; justify-content: space-between; padding: 0 24px; font-size: 11px; font-weight: 700; }
+.status-icons { display: flex; gap: 6px; align-items: center; }
+.status-icons i { display: block; width: 12px; height: 7px; border: 1.5px solid currentColor; border-radius: 2px; }
+.status-icons i:first-child { border-radius: 8px 8px 0 0; border-bottom: 0; }
+.status-icons b { font-size: 9px; padding: 2px 4px; background: white; color: #ef3340; border-radius: 4px; }
+
+.hero { background: #ef3340; color: white; padding: 12px 22px 30px; border-radius: 0 0 28px 28px; position: relative; overflow: hidden; }
+.hero::after { content: ''; position: absolute; width: 170px; height: 170px; border: 38px solid rgba(255,255,255,.08); border-radius: 50%; right: -65px; top: 18px; }
+.brand { display: flex; align-items: center; gap: 9px; font-family: Outfit, sans-serif; font-size: 13px; font-weight: 800; letter-spacing: .16em; }
+.pokeball { display: block; position: absolute; width: 116px; height: 116px; border: 20px solid rgba(255,255,255,.12); border-radius: 50%; right: -18px; bottom: -18px; transform: rotate(-18deg); }
+.pokeball::before { content: ''; position: absolute; left: -20px; right: -20px; top: 28px; height: 20px; background: rgba(255,255,255,.12); }
+.pokeball span { position: absolute; width: 32px; height: 32px; border: 9px solid rgba(255,255,255,.16); border-radius: 50%; top: 22px; left: 22px; z-index: 1; }
+.pokeball-small { position: relative; inset: auto; width: 25px; height: 25px; border-width: 3px; transform: none; }
+.pokeball-small::before { left: -3px; right: -3px; top: 8px; height: 3px; }
+.pokeball-small span { width: 9px; height: 9px; border-width: 2px; top: 5px; left: 5px; }
+.hero-title { display: flex; align-items: center; justify-content: space-between; margin: 28px 0 24px; position: relative; z-index: 1; }
+.eyebrow { display: block; font-size: 10px; line-height: 1; font-weight: 800; letter-spacing: .18em; opacity: .8; margin-bottom: 8px; }
+.eyebrow.dark { color: #7b8297; opacity: 1; }
+h1, h2, h3, p { margin: 0; }
+h1, h2, h3 { font-family: Outfit, sans-serif; }
+.hero h1 { font-size: 34px; line-height: 1.03; letter-spacing: -.03em; }
+.floating-pika { color: #ffd54a; font-family: Outfit, sans-serif; font-size: 62px; font-weight: 800; transform: rotate(12deg); margin-right: 28px; text-shadow: 0 6px 0 rgba(78,31,31,.16); }
+.search-box { height: 52px; background: white; color: #9298a9; border-radius: 16px; display: flex; align-items: center; gap: 10px; padding: 0 14px; position: relative; z-index: 2; box-shadow: 0 8px 22px rgba(112, 25, 34, .16); }
+.search-box input { border: 0; outline: 0; min-width: 0; flex: 1; color: #17213b; background: transparent; }
+.search-box input::placeholder { color: #9298a9; }
+.search-box kbd { font-family: inherit; font-size: 10px; color: #a3a8b6; background: #f0f1f5; padding: 4px 6px; border-radius: 6px; }
+
+.section-heading { display: flex; align-items: flex-end; justify-content: space-between; padding: 26px 22px 14px; }
+.section-heading h2, .simple-header h1 { font-size: 27px; line-height: 1; }
+.see-all { display: flex; align-items: center; gap: 2px; color: #ef3340; background: none; border: 0; padding: 5px 0; font-size: 12px; font-weight: 700; }
+.see-all .icon { width: 15px; height: 15px; }
+.filter-row { display: flex; gap: 8px; overflow-x: auto; scrollbar-width: none; padding: 0 22px 17px; }
+.filter { border: 1px solid #e3e5ec; background: white; color: #7a8192; border-radius: 999px; padding: 8px 14px; font-size: 12px; font-weight: 600; white-space: nowrap; }
+.filter.active { background: #17213b; border-color: #17213b; color: white; }
+
+.pokemon-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; padding: 0 22px 24px; }
+.pokemon-card { min-height: 190px; border-radius: 22px; padding: 16px; position: relative; overflow: hidden; color: #173340; box-shadow: 0 8px 24px rgba(32, 44, 66, .08); }
+.pokemon-card.mint { background: #bdebd7; }
+.pokemon-card.peach { background: #ffc5a8; }
+.pokemon-card.sky { background: #b8ddf2; }
+.pokemon-card.sun { background: #ffe58c; }
+.pokemon-card.rose { background: #f4c5dc; }
+.pokemon-card.purple { background: #cabce8; }
+.pokemon-number { font-size: 10px; font-weight: 800; opacity: .48; letter-spacing: .08em; }
+.pokemon-card h3 { font-size: 19px; line-height: 1.1; margin: 2px 0 8px; }
+.types { display: flex; gap: 4px; flex-wrap: wrap; position: relative; z-index: 3; }
+.type { padding: 4px 7px; border-radius: 999px; color: white; font-size: 8px; font-weight: 700; background: rgba(23, 33, 59, .45); }
+.type.green { background: #4a9d76; }.type.violet { background: #9267a8; }.type.orange { background: #e66b48; }
+.type.blue { background: #4d8fbc; }.type.yellow { background: #c89b22; }.type.pink { background: #c86f9a; }.type.indigo { background: #705ca0; }
+.pokemon-card > img { position: absolute; width: 118px; height: 118px; object-fit: contain; right: -2px; bottom: -3px; z-index: 2; filter: drop-shadow(0 10px 7px rgba(41,42,62,.2)); }
+.favorite-button { position: absolute; top: 11px; right: 11px; z-index: 4; width: 32px; height: 32px; padding: 0; display: grid; place-items: center; border: 0; border-radius: 50%; color: rgba(23,33,59,.45); background: rgba(255,255,255,.48); }
+.favorite-button .icon { width: 16px; height: 16px; }
+.favorite-button.active { color: #ef3340; background: white; }
+
+.simple-header { padding: 35px 22px 24px; }
+.simple-header h1 { font-size: 34px; }
+.simple-header p { color: #858b9c; margin-top: 8px; font-size: 14px; }
+.profile-screen { padding-bottom: 22px; }
+.trainer-card { margin: 0 22px 18px; padding: 20px; min-height: 118px; display: flex; align-items: center; gap: 14px; border-radius: 24px; background: #17213b; color: white; position: relative; overflow: hidden; }
+.trainer-card .avatar { width: 56px; height: 56px; border-radius: 18px; background: #ffd54a; color: #17213b; display: grid; place-items: center; flex: none; }
+.trainer-card h2 { font-size: 21px; }
+.trainer-card p { color: #aeb5c7; font-size: 11px; margin-top: 3px; }
+.trainer-card .pokeball { position: absolute; right: 13px; bottom: 13px; width: 33px; height: 33px; border-width: 5px; opacity: .7; }
+.trainer-card .pokeball::before { left: -5px; right: -5px; top: 10px; height: 5px; }
+.trainer-card .pokeball span { width: 11px; height: 11px; border-width: 3px; top: 7px; left: 6px; }
+.stats { display: grid; grid-template-columns: repeat(3, 1fr); margin: 0 22px 18px; background: white; border-radius: 20px; padding: 18px 8px; box-shadow: 0 8px 24px rgba(32,44,66,.06); }
+.stats div { display: flex; flex-direction: column; align-items: center; border-right: 1px solid #eceef3; }
+.stats div:last-child { border: 0; }
+.stats strong { font-family: Outfit, sans-serif; font-size: 20px; }
+.stats span { font-size: 9px; color: #9096a6; margin-top: 3px; }
+.menu-list { margin: 0 22px; background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 8px 24px rgba(32,44,66,.06); }
+.menu-list button { width: 100%; height: 55px; padding: 0 16px; border: 0; border-bottom: 1px solid #eceef3; background: white; color: #29324b; display: flex; align-items: center; justify-content: space-between; font-size: 13px; }
+.menu-list button:last-child { border: 0; }
+.menu-list button span { display: flex; gap: 10px; align-items: center; }
+.menu-list .icon { width: 18px; color: #ef3340; }
+
+.empty-state, .no-results { text-align: center; padding: 70px 38px 30px; color: #858b9c; }
+.empty-state h2, .no-results h2 { color: #17213b; font-size: 23px; margin-bottom: 8px; }
+.empty-state p, .no-results p { font-size: 13px; line-height: 1.6; }
+.empty-ball { width: 100px; height: 100px; margin: 0 auto 25px; border-radius: 50%; background: #ffe1e4; position: relative; overflow: hidden; }
+.empty-ball .pokeball, .no-results .pokeball { inset: -8px auto auto -8px; border-color: rgba(239,51,64,.18); }
+.empty-ball .pokeball::before, .no-results .pokeball::before { background: rgba(239,51,64,.18); }
+.empty-ball .pokeball span, .no-results .pokeball span { border-color: rgba(239,51,64,.22); }
+.primary-button { margin-top: 24px; background: #ef3340; color: white; font-weight: 700; border: 0; border-radius: 14px; padding: 13px 20px; }
+.no-results { position: relative; overflow: hidden; min-height: 250px; }
+.no-results .pokeball { opacity: .5; }
+
+.bottom-nav { position: absolute; bottom: 0; left: 0; right: 0; height: 82px; background: rgba(255,255,255,.96); border-top: 1px solid #e8eaf0; display: grid; grid-template-columns: repeat(3, 1fr); z-index: 10; padding-bottom: 10px; backdrop-filter: blur(14px); }
+.bottom-nav button { position: relative; border: 0; background: transparent; color: #9da3b2; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 4px; font-size: 10px; font-weight: 600; }
+.bottom-nav button.active { color: #ef3340; }
+.bottom-nav button.active::before { content: ''; position: absolute; top: 0; width: 27px; height: 3px; background: #ef3340; border-radius: 0 0 5px 5px; }
+.bottom-nav em { position: absolute; top: 13px; margin-left: 21px; min-width: 16px; height: 16px; padding: 0 4px; border-radius: 10px; background: #ef3340; color: white; font-style: normal; font-size: 9px; display: grid; place-items: center; border: 2px solid white; }
+
+@media (min-width: 431px) {
+  .app-shell { padding: 24px; }
+  .phone { min-height: min(900px, calc(100vh - 48px)); height: min(900px, calc(100vh - 48px)); border-radius: 34px; box-shadow: 0 30px 80px rgba(32,44,66,.24); }
+  .content { height: calc(100% - 32px); overflow-y: auto; scrollbar-width: none; }
+}

@@ -1,0 +1,60 @@
+{
+  "expo": {
+    "name": "Pokedex Mobile",
+    "slug": "pokedex-mobile",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "scheme": "pokedexmobile",
+    "userInterfaceStyle": "automatic",
+    "ios": {
+      "icon": "./assets/icon.png"
+    },
+    "android": {
+      "package": "com.gabri.fiap.pokedexmobile",
+      "adaptiveIcon": {
+        "backgroundColor": "#D82D39",
+        "foregroundImage": "./assets/icon.png",
+        "monochromeImage": "./assets/images/android-icon-monochrome.png"
+      },
+      "predictiveBackGestureEnabled": false
+    },
+    "web": {
+      "output": "server",
+      "favicon": "./assets/images/favicon.png"
+    },
+    "plugins": [
+      "expo-router",
+      [
+        "expo-splash-screen",
+        {
+          "imageWidth": 200,
+          "backgroundColor": "#D82D39",
+          "image": "./assets/icon.png",
+          "resizeMode": "contain",
+          "android": {
+            "image": "./assets/icon.png",
+            "imageWidth": 200,
+            "backgroundColor": "#D82D39",
+            "resizeMode": "contain"
+          }
+        }
+      ]
+    ],
+    "experiments": {
+      "typedRoutes": true,
+      "reactCompiler": true
+    },
+    "extra": {
+      "router": {
+        "asyncRoutes": {
+          "web": true
+        }
+      },
+      "eas": {
+        "projectId": "c38d98ac-6fee-4fc9-804b-41eb3d2dce10"
+      }
+    },
+    "owner": "tarone14"
+  }
+}
